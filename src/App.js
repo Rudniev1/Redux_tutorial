@@ -1,11 +1,11 @@
 import React from "react";
 import "./styles.css";
 import { useDispatch, useSelector } from "react-redux";
-import { increment, decrement } from "./actions";
+import { increment, decrement, isLoggeds } from "./actions";
 
 export default function App() {
   const counter = useSelector((state) => state.counter);
-  const isLogged = useSelector((state) => state.isLogged);
+  const isLoggedz = useSelector((state) => state.isLogged);
 
   const dispatch = useDispatch();
 
@@ -15,7 +15,11 @@ export default function App() {
       <button onClick={() => dispatch(increment(5))}>+</button>
       <button onClick={() => dispatch(decrement())}>-</button>
 
-      {isLogged ? <h3>Some shit i couldnt see</h3> : ""}
+      <h1>
+        <button onClick={() => dispatch(isLoggeds())}>Login</button>
+      </h1>
+
+      {isLoggedz ? <h3>Some shit i couldnt see</h3> : ""}
     </div>
   );
 }
